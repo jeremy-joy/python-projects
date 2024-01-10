@@ -28,8 +28,8 @@ def hangman():
     word_letters = set(word) # set of the letters in the word, (no dupication in sets)
     alphabet = set(string.ascii_uppercase) # this defines the set of valid characters for guesses
     used_letters = set() # declaring an empty set
-
-    while len(word_letters) > 0:
+    lives = 10 # gives the user 10 attempts to guess the word
+    while len(word_letters) > 0 and (lives > 0) :
         print("You have guessed these letters: ", " ".join(used_letters)) # try with "," as well
         current_word = [letter if letter in used_letters else '-' for letter in word]
         print("Current word: "," ".join(current_word))
@@ -39,10 +39,16 @@ def hangman():
             used_letters.add(guess)
             if guess in word_letters:
                 word_letters.remove(guess)
+            else:
+                lives -= 1
+                print(f"{guess} is not in the word, you have {lives} lives remaining!")
         # if the guessed letter has already been used
         elif guess in used_letters:
             print("You have already used this character, try another one!\n")
         else:
             print("Invalid character, try another one!\n")
-    print(f"Congratulations, you have guessed the word. The word is: {word}")
+    if lives == 0:
+        print("You have died, better luck next time!")
+    else:
+        print(f"Congratulations, you have guessed the word. The word is: {word}")
 hangman()
