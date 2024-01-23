@@ -1,5 +1,6 @@
 # Short term personal Spotify Wrapped
 # Followed along with a tutorial on Youtube
+# Developed on 12/1/23
 import requests
 import spotipy 
 from spotipy.oauth2 import SpotifyOAuth
