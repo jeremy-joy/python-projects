@@ -10,7 +10,7 @@ import datetime
 
 from pprint import pprint # to make the output easier to read
 
-DEBUG = 1 # debug lines run when DEBUG == 1
+DEBUG = 0 # debug lines run when DEBUG == 1
 
 # This would contain my client ID and secret, here they are replaced with 'client_id' and 'client_secret'
 SPOTIPY_CLIENT_ID = 'client_id'
@@ -76,5 +76,4 @@ if DEBUG == 1:
 
 # Building a data fram to store the tracks
 df = pd.DataFrame(tracks, columns = ['name', 'album', 'artist','spotify_url','album_cover'])
-if DEBUG == 1:
-    print(df.head(5))
+print(df.head(10)) # prints out the top 10 songs to the console
